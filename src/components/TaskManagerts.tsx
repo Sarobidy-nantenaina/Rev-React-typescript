@@ -7,7 +7,7 @@ interface Task {
   title: string;
 }
 
-export const TaskManagerts = () => {
+export const TaskManager = () => {
   const [title, setTitle] = useState<string>("");
   const [searchKeyword, setSearchKeyword] = useState<string>("");
   const [tasks, setTasks] = useState<Task[]>([]);
@@ -17,16 +17,16 @@ export const TaskManagerts = () => {
     setTasks(tasks.filter((task) => task.id !== id));
   };
 
- const updateTask = (id: string, taskUpdate: Partial<Task>) => {
-   const newTasks = [...tasks];
+  const updateTask = (id: string, taskUpdate: Partial<Task>) => {
+    const newTasks = [...tasks];
 
-   const index = tasks.findIndex((task) => task.id === id);
+    const index = tasks.findIndex((task) => task.id === id);
 
-   if (index !== -1) {
-     newTasks[index] = { ...newTasks[index], ...taskUpdate };
-     setTasks(newTasks);
-   }
- };
+    if (index !== -1) {
+      newTasks[index] = { ...newTasks[index], ...taskUpdate };
+      setTasks(newTasks);
+    }
+  };
 
 
   const addTask = () => {
